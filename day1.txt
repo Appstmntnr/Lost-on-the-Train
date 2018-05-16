@@ -1,0 +1,76 @@
+DIALOGUE 0
+SETTING: train1
+SPEAKER: 
+TEXT: 
+OPTION 0: INPUT[NAME]
+RESPONSE 0: 1  
+
+DIALOGUE 1
+SETTING: train1
+SPEAKER: NAME
+TEXT: The sun broke through the glass on that warm early morning.
+OPTION 0: STALL
+RESPONSE 0: 2  
+
+DIALOGUE 2
+SETTING: train1
+SPEAKER: NAME
+TEXT: That's when I saw ...
+OPTION 0: STALL
+RESPONSE 0: 3  
+
+DIALOGUE 3
+SETTING: train1
+SPEAKER: NAME
+TEXT: her
+OPTION 0: NULL
+RESPONSE 0: 4  
+
+DIALOGUE 4
+SETTING: train1
+SPEAKER: NAME
+TEXT: Her face was so bright it was as if the sun shone through it
+OPTION 0: STALL
+RESPONSE 0: 5  
+
+DIALOGUE 5
+SETTING: train1
+SPEAKER: NAME
+TEXT: All air escaped my lungs as I was pushed to the ground by commuters,
+OPTION 0: STALL
+RESPONSE 0: 6  
+
+DIALOGUE 6
+SETTING: train1
+SPEAKER: NAME
+TEXT: anxious to escape the train and stroll across the platform.
+OPTION 0: STALL
+RESPONSE 0: 7  
+
+DIALOGUE 7
+SETTING: train1
+SPEAKER: NAME
+TEXT: Her image had escaped my retinas and permanently afixed itself to my mind.
+OPTION 0: NULL
+RESPONSE 0: 8  
+
+DIALOGUE 8
+SETTING: train1
+SPEAKER: Narrator
+TEXT: Day 2
+OPTION 0: STALL
+RESPONSE 0: 9  
+
+DIALOGUE 9
+SETTING: train1
+SPEAKER: Narrator
+TEXT: NAME is reading a book
+OPTION 0: STALL
+RESPONSE 0: 10
+
+DIALOGUE 10
+SETTING: train1
+SPEAKER: NAME
+TEXT: *Drops book* Ah!
+OPTION 0: STALL
+RESPONSE 0: 0
