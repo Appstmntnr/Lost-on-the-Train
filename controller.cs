@@ -66,5 +66,16 @@ namespace Visual {
             submit.gameObject.SetActive(false);
             change_question(convos[current_convo].Qs[current_question].responses[0]);
         }
+
+        public void save_game() {
+            string [] lines = {"conversation: " + current_convo, "question: " + current_question};
+            System.IO.File.WriteAllLines(@"save.txt", lines);
+        }
+
+        public void load_game() {
+            string [] lines = System.IO.File.ReadAllLines(@"save.txt");
+            current_convo = lines[0][14] - '0';
+            change_question(lines[1][10] - '0');
+        }
     }
 }

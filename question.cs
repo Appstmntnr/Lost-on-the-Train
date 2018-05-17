@@ -100,7 +100,11 @@ namespace Visual {
                 text_input.gameObject.SetActive(true);
                 text_input.text = "Enter your name";
             }
-            else next.gameObject.SetActive(true);
+            else {
+                next.gameObject.SetActive(true);
+                submit.gameObject.SetActive(false);
+                text_input.gameObject.SetActive(false);
+            }
 
             question_text.text = this.question_text;
 
