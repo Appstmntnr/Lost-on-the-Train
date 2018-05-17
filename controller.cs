@@ -74,8 +74,17 @@ namespace Visual {
 
         public void load_game() {
             string [] lines = System.IO.File.ReadAllLines(@"save.txt");
-            current_convo = lines[0][14] - '0';
-            change_question(lines[1][10] - '0');
+
+            int convo_num = 0;
+            for (int i = 14; i < lines[0].Length && lines[0][i] >= 48 && lines[0][i] <= 57; i++)
+                { convo_num = (convo_num * 10) + (lines[0][i] - '0'); }
+            current_convo = convo_num;
+
+            int question_num = 0;
+            for (int i = 10; i < lines[1].Length && lines[1][i] >= 48 && lines[1][i] <= 57; i++)
+                { question_num = (question_num * 10) + (lines[1][i] - '0'); }
+            change_question(question_num);
+
             player_data.name = lines[2].Substring(6, lines[2].Length - 6);
         }
     }
