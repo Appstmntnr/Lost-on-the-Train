@@ -73,4 +73,197 @@ SETTING: train1
 SPEAKER: NAME
 TEXT: *Drops book* Ah!
 OPTION 0: STALL
+RESPONSE 0: 11
+
+DIALOGUE 11
+SETTING: train1
+SPEAKER: NAME
+TEXT: (That's going to be a pain to pick up)
+OPTION 0: STALL
+RESPONSE 0: 12
+
+DIALOGUE 12
+SETTING: train1
+SPEAKER: NAME
+TEXT: *hand appears ontop of the book* Oh!
+OPTION 0: STALL
+RESPONSE 0: 13
+
+DIALOGUE 13
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *holds out book*
+OPTION 0: Thank you!
+OPTION 1: Who are you?
+RESPONSE 0: 14
+RESPONSE 1: 14
+
+DIALOGUE 14
+SETTING: train1
+SPEAKER: NAME
+TEXT: Where are you going?
+OPTION 0: STALL
+RESPONSE 0: 15
+
+DIALOGUE 15
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *Begins to leave*
+OPTION 0: STALL
+RESPONSE 0: 16
+
+DIALOGUE 16
+SETTING: train1
+SPEAKER: NAME
+TEXT: Wait!
+OPTION 0: NULL
+RESPONSE 0: 17
+
+DIALOGUE 17
+SETTING: train1
+SPEAKER: NAME
+TEXT: What's your name?
+OPTION 0: NULL
+RESPONSE 0: 18
+
+DIALOGUE 18
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: Je ne sais pas ce que vous dites.
+OPTION 0: NULL
+RESPONSE 0: 19
+
+DIALOGUE 19
+SETTING: train1
+SPEAKER: NAME
+TEXT: (She's gone)
+OPTION 0: NULL
+RESPONSE 0: 20
+
+DIALOGUE 20
+SETTING: train1
+SPEAKER: Narrator
+TEXT: Day 3
+OPTION 0: NULL
+RESPONSE 0: 21
+
+DIALOGUE 21
+SETTING: train1
+SPEAKER: NAME
+TEXT: (I wonder who that girl is)
+OPTION 0: NULL
+RESPONSE 0: 22
+
+DIALOGUE 22
+SETTING: train1
+SPEAKER: NAME
+TEXT: (There she is!)
+OPTION 0: Hey!
+OPTION 1: Excuse me!
+RESPONSE 0: 23
+RESPONSE 1: 23
+
+DIALOGUE 23
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *turns*
+OPTION 0: What's your name?
+OPTION 1: FUCK YOU!
+OPTION 2: *Walk up to her*
+RESPONSE 0: 25
+RESPONSE 1: 24
+RESPONSE 2: 25
+
+DIALOGUE 24
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *turns away angrily*
+OPTION 0: NULL
+RESPONSE 0: 0
+
+DIALOGUE 25
+SETTING: train1
+SPEAKER: NAME
+TEXT: I'm NAME. Who ar-
+OPTION 0: NULL
+RESPONSE 0: 26
+
+DIALOGUE 26
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *takes a pen and notebook from bag*
+OPTION 0: NULL
+RESPONSE 0: 27
+
+DIALOGUE 27
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *Written in the notebook* "Je ne parle pas allemand"
+OPTION 0: Oh
+OPTION 1: *take the pen and write*
+RESPONSE 0: 28
+RESPONSE 1: 29
+
+DIALOGUE 28
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *Walks away*
+OPTION 0: NULL
+RESPONSE 0: 0
+
+DIALOGUE 29
+SETTING: train1
+SPEAKER: 
+TEXT: What will you write?
+OPTION 0: Apprend anglais ou retourne à ton pays
+OPTION 1: Name?
+OPTION 2: *Draw outline of nametag*
+RESPONSE 0: 30
+RESPONSE 1: 31
+RESPONSE 2: 33
+
+DIALOGUE 30
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *Slaps you and walks away*
+OPTION 0: NULL
+RESPONSE 0: 0
+
+DIALOGUE 31
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *looks confused*
+OPTION 0: NULL
+RESPONSE 0: 32
+
+DIALOGUE 32
+SETTING: train1
+SPEAKER: 
+TEXT: Try writing again
+OPTION 0: Apprend anglais ou retourne à ton pays
+OPTION 1: Name?
+OPTION 2: *Draw outline of nametag*
+RESPONSE 0: 30
+RESPONSE 1: 31
+RESPONSE 2: 32
+
+DIALOGUE 33
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *Writes something down, tears it out, and hands it to you*
+OPTION 0: NULL
+RESPONSE 0: 34
+
+DIALOGUE 34
+SETTING: train1
+SPEAKER: Mysterious Girl
+TEXT: *walks away*
+OPTION 0: NULL
+RESPONSE 0: 35
+
+DIALOGUE 35
+SETTING: train1
+SPEAKER: NAME
+TEXT: Adele
+OPTION 0: NULL
 RESPONSE 0: 0
