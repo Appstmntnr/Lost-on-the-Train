@@ -68,7 +68,7 @@ namespace Visual {
         }
 
         public void save_game() {
-            string [] lines = {"conversation: " + current_convo, "question: " + current_question};
+            string [] lines = {"conversation: " + current_convo, "question: " + current_question, "name: " + player_data.name};
             System.IO.File.WriteAllLines(@"save.txt", lines);
         }
 
@@ -76,6 +76,7 @@ namespace Visual {
             string [] lines = System.IO.File.ReadAllLines(@"save.txt");
             current_convo = lines[0][14] - '0';
             change_question(lines[1][10] - '0');
+            player_data.name = lines[2].Substring(6, lines[2].Length - 6);
         }
     }
 }
