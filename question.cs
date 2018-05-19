@@ -12,7 +12,6 @@ namespace Visual {
         public List<string> options; // options available
         public List<int> responses; // responses to all options
         public string setting; // the place in which the question takes place
-        public int background; 
         public int convo_change; // the index number of the conversation that should take place directly after this dialog node
 
         // question() allocates memory for a new question
@@ -31,10 +30,9 @@ namespace Visual {
             this.setting = new_sett;
         }
 
-        public void set_background(int new_bg) {
-            this.background = new_bg;
-        }
-
+        // set_setting(new_cv) changes convo_change to new_cv
+        // effects: mutates data
+        // efficiency: O(1)
         public void set_convo_change(int new_cv) {
             this.convo_change = new_cv;
         }
@@ -79,10 +77,7 @@ namespace Visual {
                             GameObject option1_button, GameObject option2_button, GameObject option3_button, 
                             GameObject next, GameObject submit, InputField text_input, 
                             GameObject Background_Canvas, int current_convo) {
-            /*              
-            for (int i = 0; i < total_backgrounds; i++) backgrounds[i].gameObject.SetActive(false);
-            backgrounds[this.background].gameObject.SetActive(true);
-    	    */
+
             foreach (Transform background in Background_Canvas.transform) {
                 background.gameObject.SetActive(false);
             }
