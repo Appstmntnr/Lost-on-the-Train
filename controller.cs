@@ -29,6 +29,8 @@ namespace Visual {
 
         void Awake() {
             convos.Add(new conversation("Assets/day1.txt"));
+            convos.Add(new conversation("Assets/day4.txt"));
+            Debug.Log("amount of convos: " + convos.Count);
             current_convo = 0;
             current_question = 0;
 
@@ -37,11 +39,19 @@ namespace Visual {
         }
 
         public void change_question(int new_q) {
-            current_question = new_q;
+            // in the case of a change in conversation
+            if (convos[current_convo].Qs[current_question].convo_change >= 0) {
+                current_convo = convos[current_convo].Qs[current_question].convo_change;
+                current_question = 0;
+            }
+            // normal case
+            else current_question = new_q;
+
+            // activate the next question
             convos[current_convo].Qs[current_question].activate(question_text, speaker, option1, option2, option3, 
                                                                 option1_button, option2_button, option3_button, 
                                                                 next_button, submit, text_input, 
-                                                                Background_Canvas);
+                                                                Background_Canvas, current_convo);
         }
 
         public void choose1() {

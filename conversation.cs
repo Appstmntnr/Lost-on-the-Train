@@ -33,7 +33,10 @@ namespace Visual {
                 }
                 else if (line.Contains("TEXT")) Qs[i].set_text(line.Substring(6, line.Length - 6));
                 else if (line.Contains("OPTION")) {
-                    if (!line.Contains("NULL") && !line.Contains("STALL")) Qs[i].addOption(line.Substring(10, line.Length - 10));
+                    if (line.Contains("CHANGE_CONVERSATION")) {
+                        Qs[i].set_convo_change(line[30] - '0');
+                    }
+                    else if (!line.Contains("NULL") && !line.Contains("STALL")) Qs[i].addOption(line.Substring(10, line.Length - 10));
                 }
                 else if (line.Contains("RESPONSE")) {
                     //int l = line[12];  

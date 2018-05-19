@@ -13,6 +13,7 @@ namespace Visual {
         public List<int> responses; // responses to all options
         public string setting; // the place in which the question takes place
         public int background; 
+        public int convo_change; // the index number of the conversation that should take place directly after this dialog node
 
         // question() allocates memory for a new question
         // effects: allocates memory
@@ -20,6 +21,7 @@ namespace Visual {
         public question() {
             this.options = new List<string>();
             this.responses = new List<int>();
+            this.convo_change = -1;
         }
 
         // set_setting(new_sett) changes setting to new_sett
@@ -31,6 +33,10 @@ namespace Visual {
 
         public void set_background(int new_bg) {
             this.background = new_bg;
+        }
+
+        public void set_convo_change(int new_cv) {
+            this.convo_change = new_cv;
         }
 
         // set_text(new_text) changes question_text to new_text
@@ -72,7 +78,7 @@ namespace Visual {
         public void activate(Text question_text, Text speaker, Text option1, Text option2, Text option3, 
                             GameObject option1_button, GameObject option2_button, GameObject option3_button, 
                             GameObject next, GameObject submit, InputField text_input, 
-                            GameObject Background_Canvas) {
+                            GameObject Background_Canvas, int current_convo) {
             /*              
             for (int i = 0; i < total_backgrounds; i++) backgrounds[i].gameObject.SetActive(false);
             backgrounds[this.background].gameObject.SetActive(true);
@@ -105,7 +111,15 @@ namespace Visual {
                 submit.gameObject.SetActive(false);
                 text_input.gameObject.SetActive(false);
             }
-
+            
+            if (this.options.Count >= 1 && this.options[0].Contains("CHANGE_CONVERSATION")) {
+                Debug.Log("We should change convo");
+                if (this.options[0].Length >= 31) { 
+                    current_convo = (this.options[0][20] - '0');
+                    Debug.Log("current_convo: " + current_convo);
+                }
+            }
+            
             question_text.text = this.question_text;
 
             if (this.speaker == "NAME") this.speaker = player_data.name;
