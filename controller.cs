@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.IO;
 
 namespace Visual {
     public class controller : MonoBehaviour {
@@ -23,13 +24,17 @@ namespace Visual {
         public GameObject submit;
 
         public GameObject Background_Canvas;        
+        public GameObject MenuCanvas;
+        public GameObject OptionsCanvas;
 
         List<conversation> convos = new List<conversation>();
         private int current_convo;
 
         void Awake() {
-            convos.Add(new conversation("Assets/day1.txt"));
-            convos.Add(new conversation("Assets/day4.txt"));
+            convos.Add(new conversation("Assets/Text_Files/English/day1.txt"));
+            convos.Add(new conversation("Assets/Text_Files/English/day4.txt"));
+            convos.Add(new conversation("Assets/Text_Files/English/day5.txt"));
+            convos.Add(new conversation("Assets/Text_Files/English/library.txt"));
             Debug.Log("amount of convos: " + convos.Count);
             current_convo = 0;
             current_question = 0;
@@ -69,7 +74,7 @@ namespace Visual {
         public void next() {
             choose1();
         }
-
+        
         public void submit_text() {
             player_data.name = text_input.text;
             text_input.gameObject.SetActive(false);
@@ -77,11 +82,20 @@ namespace Visual {
             change_question(convos[current_convo].Qs[current_question].responses[0]);
         }
 
+        // save_game() saves the player's progress by writing the player's name,
+        //   current_convo, and current_question to a text file
+        // effects: mutates data, file I/O
+        // efficiency: O(n)
         public void save_game() {
             string [] lines = {"conversation: " + current_convo, "question: " + current_question, "name: " + player_data.name};
             System.IO.File.WriteAllLines(@"save.txt", lines);
         }
 
+        // load_game() loads the player's game save by reading from 
+        //   a pre-written text file containing the player's name,
+        //   current_convo, and current_question
+        // effects: mutates data, file I/O
+        // efficiency: O(n)
         public void load_game() {
             string [] lines = System.IO.File.ReadAllLines(@"save.txt");
 
@@ -96,6 +110,37 @@ namespace Visual {
             change_question(question_num);
 
             player_data.name = lines[2].Substring(6, lines[2].Length - 6);
+
+            MenuCanvas.gameObject.SetActive(false); // disable the menu if it's active
+        }
+
+        // start_game() deactivates the main menu and options menu so that the game can begin
+        // effects: deactivates GameObjects
+        // efficiency: O(1)
+        public void start_game() {
+            MenuCanvas.gameObject.SetActive(false); // disable the menu if it's active
+        }
+
+        // deactivate_options_menu() activates the options menu
+        // effects: activates GameObjects
+        // efficiency: O(1)
+        public void activate_options_menu() {
+            MenuCanvas.gameObject.transform.FindChild("Options Menu").gameObject.SetActive(true);
+        }
+
+        // deactivate_options_menu() deactivates the options menu
+        // effects: deactivates GameObjects
+        // efficiency: O(1)
+        public void deactivate_options_menu() {
+            MenuCanvas.gameObject.transform.FindChild("Options Menu").gameObject.SetActive(false);
+        }
+
+        public void change_lang_german() {
+            for (int i = convos.Count - 1; i >=0; i--) convos.RemoveAt(i);
+
+            string [] filenames = Directory.GetFiles("Assets/Text_Files/German");
+
+            foreach (string path in filenames) { convos.Add(new conversation(path)); Debug.Log(path); }
         }
     }
 }

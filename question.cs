@@ -115,7 +115,9 @@ namespace Visual {
                 }
             }
             
-            question_text.text = this.question_text;
+            if (this.question_text.Contains("NAME")) 
+                { question_text.text = strlib.replace_sub(this.question_text, "NAME", player_data.name); }
+            else question_text.text = this.question_text;
 
             if (this.speaker == "NAME") this.speaker = player_data.name;
             speaker.text = this.speaker;
