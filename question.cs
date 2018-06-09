@@ -93,6 +93,23 @@ namespace Visual {
             if (this.options.Count >= 2) { option2_button.gameObject.SetActive(true); option2.text = this.options[1]; }
             if (this.options.Count >= 3) { option3_button.gameObject.SetActive(true); option3.text = this.options[2]; }
 
+            // adjust font size
+            while (this.options.Count >= 1) {
+                if (this.options[0].Length <= 20) { Debug.Log("too short to resize"); break; }
+                else if ((4 * this.options[0].Length) >= (7 * option1.fontSize)) { Debug.Log("ratio is good"); break; }
+                else { option1.fontSize--; Debug.Log("font size: " + option1.fontSize); }
+            }
+            while(this.options.Count >= 2) {
+                if (this.options[1].Length <= 20) { Debug.Log("too short to resize"); break; }
+                else if ((4 * this.options[1].Length) >= (7 * option2.fontSize)) { Debug.Log("ratio is good"); break; }
+                else { option2.fontSize--; Debug.Log("font size: " + option2.fontSize); }
+            }
+            while (this.options.Count >= 3) {
+                if (this.options[2].Length <= 20) { Debug.Log("too short to resize"); break; }
+                else if ((4 * this.options[2].Length) >= (7 * option3.fontSize)) { Debug.Log("ratio is good"); break; }
+                else { option3.fontSize--; Debug.Log("font size: " + option3.fontSize); }
+            }
+
             // special events
             if (this.options.Count >= 1 && this.options[0] == "INPUT[NAME]") {
                 next.gameObject.SetActive(false);
